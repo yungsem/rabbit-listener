@@ -10,8 +10,8 @@ import (
 var (
 	username = flag.String("username", "admin", "username of rabbitmq server")
 	password = flag.String("password", "admin123456", "password of rabbitmq server")
-	host     = flag.String("host", "1.15.181.131", "host of rabbitmq server")
-	port     = flag.String("port", "5682", "port of rabbitmq server")
+	host     = flag.String("host", "localhost", "host of rabbitmq server")
+	port     = flag.String("port", "5672", "port of rabbitmq server")
 	queue    = flag.String("queue", "test_listener", "queue to listen")
 )
 
