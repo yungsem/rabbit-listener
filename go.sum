@@ -8,8 +8,8 @@ github.com/rabbitmq/amqp091-go v1.5.0/go.mod h1:JsV0ofX5f1nwOGafb8L5rBItt9GyhfQf
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
 github.com/stretchr/testify v1.7.0/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/h/Wwjteg=
 github.com/yuin/goldmark v1.3.5/go.mod h1:mwnBkeHKe2W/ZEtQ+71ViKU8L12m81fl3OWwC1Zlc8k=
-github.com/yungsem/gox v1.0.0 h1:SXwAWS8apCGfow0x/F3C/88pgzJFaDSfxqmDK1AeODU=
-github.com/yungsem/gox v1.0.0/go.mod h1:ZKBdNnVQpugD/NmfxBDCpUgIeQbbYFtDRVDrmTzDuf4=
+github.com/yungsem/gox v1.0.1 h1:xoYIIFythDnwn1G5htwmOYBbiKBu9i54BE6fyuen9Qg=
+github.com/yungsem/gox v1.0.1/go.mod h1:ZKBdNnVQpugD/NmfxBDCpUgIeQbbYFtDRVDrmTzDuf4=
 github.com/yungsem/rabbitx v0.1.5 h1:7MNMwACcsKXVwY82W8IHR6WNi7xUMRBREJqSu5Ebcd4=
 github.com/yungsem/rabbitx v0.1.5/go.mod h1:ccfD86O7yW0ZxNF9OtvQADr6Bseqc4cy6pHKQ/Hat54=
 go.uber.org/goleak v1.1.12 h1:gZAh5/EyT/HQwlpkCy6wTpqfH9H8Lz8zbm3dZh+OyzA=

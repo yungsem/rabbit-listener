@@ -9,8 +9,11 @@ import (
 )
 
 var (
-	Log = logx.NewStdoutLog(logx.WarnStr)
+	Log = logx.NewFileLog(logx.InfoStr, "logs")
 )
+
+// DiffLowerLimit 时间差值的下限，大于该值的消息要记录下来
+var DiffLowerLimit int
 
 // TimeCmpHandler 表示专门做时间对比的处理器
 type TimeCmpHandler struct {
@@ -55,8 +58,8 @@ func compare(body []byte) {
 	// now-rptTime ，并取绝对值
 	diff := now.Sub(rptTime).Abs()
 
-	// 差值大于 5 秒，写入文件
-	if diff > 5*time.Second {
+	// 差值大于 50 秒，写入文件
+	if diff > time.Duration(DiffLowerLimit)*time.Second {
 		// 创建文件 diff.log
 		file, fileErr := filex.OpenFile("diff.log")
 		if fileErr != nil {

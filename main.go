@@ -13,10 +13,11 @@ var (
 	host     = flag.String("host", "localhost", "host of rabbitmq server")
 	port     = flag.String("port", "5672", "port of rabbitmq server")
 	queue    = flag.String("queue", "test_listener", "queue to listen")
+	timeDiff = flag.Int("time-diff", 5, "duration lower limit")
 )
 
 var (
-	Log = logx.NewStdoutLog(logx.InfoStr)
+	Log = logx.NewFileLog(logx.InfoStr, "logs")
 )
 
 func init() {
@@ -30,6 +31,8 @@ func main() {
 	if err != nil {
 		Log.ErrorE(err)
 	}
+
+	handler.DiffLowerLimit = *timeDiff
 
 	// 监听并处理
 	Log.InfoF("start listening %s", *queue)
