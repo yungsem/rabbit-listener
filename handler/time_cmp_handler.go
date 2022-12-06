@@ -27,12 +27,55 @@ func (h *TimeCmpHandler) Handle(delivery amqp.Delivery) {
 	compare(delivery.Body)
 }
 
+/*
+{
+    "trx_name": "eqp_data",
+    "msg_id": 1670285870,
+    "token": "",
+    "rpt_time": "2022-12-06T00:17:50.463511",
+    "box_code": "2205107750",
+    "encrypt": 0,
+    "data": {
+        "eqp_code": "MPTEST-BNL-12",
+        "product_model": "",
+        "product_code": "",
+        "params": [
+            {
+                "k": "eqp_echo",
+                "v": 1
+            },
+            {
+                "k": "EQP_STATUS",
+                "v": "IDLE"
+            }
+        ]
+    }
+}
+*/
+
 // message 表示消息体
 type message struct {
+	TrxName  string    `json:"trx_name"`
 	MsgId    int       `json:"msg_id"`
+	Token    string    `json:"token"`
 	RptTime  string    `json:"rpt_time"`
+	BoxCode  string    `json:"box_code"`
+	Encrypt  int       `json:"encrypt"`
 	Now      time.Time `json:"now"`
 	Duration string    `json:"duration"`
+	Data     data      `json:"data"`
+}
+
+type data struct {
+	EqpCode      string  `json:"eqp_code"`
+	ProductModel string  `json:"product_model"`
+	ProductCode  string  `json:"product_code"`
+	Params       []param `json:"params"`
+}
+
+type param struct {
+	K string      `json:"k"`
+	V interface{} `json:"v"`
 }
 
 // compare 对比消息体里的时间和收到消息的实际，差异大于 5 秒，则写入文件
